@@ -1,112 +1,70 @@
-# 🦜 Generative Deep Learning - 2nd Edition Codebase
+# 🦜 《生成式深度学习（第 2 版）》代码仓库
 
-The official code repository for the second edition of the O'Reilly book *Generative Deep Learning: Teaching Machines to Paint, Write, Compose and Play*.
+本仓库是 O’Reilly 出版图书 《Generative Deep Learning: Teaching Machines to Paint, Write, Compose and Play》（生成式深度学习：教会机器绘画、写作、作曲与博弈）第二版 的官方代码仓库。
 
-[O'Reilly link](https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/)
-
-[Amazon US link](https://www.amazon.com/Generative-Deep-Learning-Teaching-Machines/dp/1098134184/)
+[O’Reilly 官方链接](https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/)
 
 <img src="img/book_cover.png" width="300px">
 
-## 📖 Book Chapters
+## 📖 书籍章节
 
-Below is a outline of the book chapters:
+以下是本书的章节结构概览：
 
-*Part I: Introduction to Generative Deep Learning*
+*第一部分：生成式深度学习导论*
 
-1. Generative Modeling
-2. Deep Learning
+1. 生成建模（Generative Modeling）
+2. 深度学习（Deep Learning）
 
-*Part II: Methods*
+*第二部分：方法*
 
-3. Variational Autoencoders
-4. Generative Adversarial Networks
-5. Autoregressive Models
-6. Normalizing Flows
-7. Energy-Based Models
-8. Diffusion Models
+3. 变分自编码器（Variational Autoencoders）
+4. 生成对抗网络（Generative Adversarial Networks）
+5. 自回归模型（Autoregressive Models）
+6. 归一化流（Normalizing Flows）
+7. 能量模型（Energy-Based Models）
+8. 扩散模型（Diffusion Models）
 
-*Part III: Applications*
+*第三部分：应用*
 
-9. Transformers
+9. Transformer
 10. Advanced GANs
-11. Music Generation
-12. World Models
-13. Multimodal Models
-14. Conclusion
+11. 音乐生成
+12. 世界模型（World Models）
+13. 多模态模型（Multimodal Models）
+14. 总结
 
-## 🌟 Star History
+## 🌟 Star 历史
 
 <img src="https://api.star-history.com/svg?repos=davidADSP/Generative_Deep_Learning_2nd_Edition&type=Date" width="500px">
 
-## 🚀 Getting Started
+## 🚀 快速开始
 
 ### Kaggle API
 
-To download some of the datasets for the book, you will need a Kaggle account and an API token. To use the Kaggle API:
+为了下载书中使用的一些数据集，你需要一个 Kaggle 账号以及 API Token。使用 Kaggle API 的步骤如下：
 
-1. Sign up for a [Kaggle account](https://www.kaggle.com).
-2. Go to the 'Account' tab of your user profile
-3. Select 'Create API Token'. This will trigger the download of `kaggle.json`, a file containing your API credentials.
+1. 注册一个 [Kaggle 账号](https://www.kaggle.com).
+2. 进入个人主页的 Account（账户）标签页
+3. 点击 Create API Token，这将下载一个名为 'kaggle.json' 的文件，其中包含你的 API 凭据
 
-### The .env file
+### .env 文件
 
-Create a file called `.env` in the root directory, containing the following values (replacing the Kaggle username and API key with the values from the JSON):
+在项目根目录下创建一个名为 `.env`的文件，内容如下（将 Kaggle 用户名和 API Key 替换为你自己 kaggle.json 中的值）：
 
 ```
 JUPYTER_PORT=8888
 TENSORBOARD_PORT=6006
-KAGGLE_USERNAME=<your_kaggle_username>
-KAGGLE_KEY=<your_kaggle_key>
+KAGGLE_USERNAME=<你的_kaggle_用户名>
+KAGGLE_KEY=<你的_kaggle_key>
 ```
 
-### Get set up with Docker
+与本书配套的 Notebook 位于 `/notebooks` 目录中，并按章节与示例进行组织。
 
-This codebase is designed to be run with [Docker](https://docs.docker.com/get-docker/).
+## 🏞️ 数据下载
 
-If you've never used Docker before, don't worry! I have included a guide to Docker in the [Docker README](./docs/docker.md) file in this repository. This includes a full run through of why Docker is awesome and a brief guide to the `Dockerfile` and `docker-compose.yml` for this project.
+本代码仓库内置了一个数据下载辅助脚本。
 
-### Building the Docker image
-
-If you do not have a GPU, run the following command:
-
-```
-docker compose build
-```
-
-If you do have a GPU that you wish to use, run the following command:
-
-```
-docker compose -f docker-compose.gpu.yml build
-```
-
-### Running the container
-
-If you do not have a GPU, run the following command:
-
-```
-docker compose up
-```
-
-If you do have a GPU that you wish to use, run the following command:
-
-```
-docker compose -f docker-compose.gpu.yml up
-```
-
-Jupyter will be available in your local browser, on the port specified in your env file - for example
-
-```
-http://localhost:8888
-```
-
-The notebooks that accompany the book are available in the `/notebooks` folder, organized by chapter and example.
-
-## 🏞️ Downloading data
-
-The codebase comes with an in-built data downloader helper script.
-
-Run the data downloader as follows (from outside the container), choosing one of the named datasets below:
+运行以下命令，并从下列数据集名称中选择一个：
 
 ```
 bash scripts/download.sh [faces, bricks, recipes, flowers, wines, cellosuites, chorales]
@@ -114,27 +72,25 @@ bash scripts/download.sh [faces, bricks, recipes, flowers, wines, cellosuites, c
 
 ## 📈 Tensorboard
 
-Tensorboard is really useful for monitoring experiments and seeing how your model training is progressing.
+TensorBoard 可用于监控实验过程并可视化模型训练进度。
 
-To launch Tensorboard, run the following script (from outside the container):
-* `<CHAPTER>` - the required chapter (e.g. `03_vae`)
-* `<EXAMPLE>` - the required example (e.g. `02_vae_fashion`)
+运行以下脚本以启动 TensorBoard：
+* `<CHAPTER>` - 章节编号 (e.g. `03_vae`)
+* `<EXAMPLE>` - 具体示例 (e.g. `02_vae_fashion`)
 
 ```
 bash scripts/tensorboard.sh <CHAPTER> <EXAMPLE>
 ```
 
-Tensorboard will be available in your local browser on the port specified in your `.env` file - for example:
+随后可在本地浏览器中访问 TensorBoard（端口由`.env`文件指定），例如：
+
 ```
 http://localhost:6006
 ```
 
-## ☁️ Using a cloud virtual machine
 
-To set up a virtual machine with GPU in Google Cloud Platform, follow the instructions in the [Google Cloud README](./docs/googlecloud.md) file in this repository.
+## 📦 其他资源
 
-## 📦 Other resources
-
-Some of the examples in this book are adapted from the excellent open source implementations that are available through the [Keras website](https://keras.io/examples/generative/). I highly recommend you check out this resource as new models and examples are constantly being added.
+本书中的部分示例改编自 Keras 官方网站提供的优秀开源实现[Keras website](https://keras.io/examples/generative/)强烈建议查阅该资源，其中不断新增新的模型与示例。
 
 
