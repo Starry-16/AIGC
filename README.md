@@ -91,6 +91,6 @@ http://localhost:6006
 
 ## 📦 其他资源
 
-本书中的部分示例改编自 Keras 官方网站提供的优秀开源实现[Keras website](https://keras.io/examples/generative/)强烈建议查阅该资源，其中不断新增新的模型与示例。
+本书中的部分示例改编自 Keras 官方网站提供的优秀开源实现[Keras website](https://keras.io/examples/generative/)强烈建议查阅该资源，其中会不断增加新的模型与示例。
 
 
