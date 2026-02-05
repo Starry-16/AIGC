@@ -33,10 +33,6 @@
 13. 多模态模型（Multimodal Models）
 14. 总结
 
-## 🌟 Star 历史
-
-<img src="https://api.star-history.com/svg?repos=davidADSP/Generative_Deep_Learning_2nd_Edition&type=Date" width="500px">
-
 ## 🚀 快速开始
 
 ### Kaggle API
