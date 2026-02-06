@@ -42,19 +42,8 @@
 1. 注册一个 [Kaggle 账号](https://www.kaggle.com).
 2. 进入个人主页的 Account（账户）标签页
 3. 点击 Create API Token，这将下载一个名为 'kaggle.json' 的文件，其中包含你的 API 凭据
+4. 将上一步下载的kaggle.json文件放在C:\Users\zhao(你自己的用户名)\.kaggle目录下
 
-### .env 文件
-
-在项目根目录下创建一个名为 `.env`的文件，内容如下（将 Kaggle 用户名和 API Key 替换为你自己 kaggle.json 中的值）：
-
-```
-JUPYTER_PORT=8888
-TENSORBOARD_PORT=6006
-KAGGLE_USERNAME=<你的_kaggle_用户名>
-KAGGLE_KEY=<你的_kaggle_key>
-```
-
-与本书配套的 Notebook 位于 `/notebooks` 目录中，并按章节与示例进行组织。
 
 ## 🏞️ 数据下载
 
@@ -63,7 +52,7 @@ KAGGLE_KEY=<你的_kaggle_key>
 运行以下命令，并从下列数据集名称中选择一个：
 
 ```
-bash scripts/download.sh [faces, bricks, recipes, flowers, wines, cellosuites, chorales]
+python scripts/download.py faces（要下载的数据集种类） [faces, bricks, recipes, flowers, wines, cellosuites, chorales]
 ```
 
 ## 📈 Tensorboard

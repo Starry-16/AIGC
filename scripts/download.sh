@@ -1,4 +1,4 @@
-DATASET=$1
+DATASET="faces"
 
 if [ $DATASET = "faces" ]
 then
